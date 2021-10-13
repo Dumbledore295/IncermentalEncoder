@@ -3,7 +3,7 @@ from RPi import GPIO
  
 
  
-step = 5 #shranimo korak, ki ga prištejemo ali odštejemo, ko se zavrti enkoder
+step = 1 #shranimo korak, ki ga prištejemo ali odštejemo, ko se zavrti enkoder
 paused = False #spremljamo stanje, kdaj se ustavimo
  
 #Povemo kako bomo nastavljali GPIO pine; uporabimo logični način, to kar je zapisano na GPIO členu
@@ -67,9 +67,9 @@ print ("=========================================")
  
 #nastavimo prekinitve
 #GPIO.add_event_detect(pin, kdaj preberemo FALLING/RISING/*ONCHANGE*, katero funkcijo želimo poklicati, nastavimo koliko časa naj prekinitev počaka pred ponovno izvedbo)
-GPIO.add_event_detect(clk, GPIO.FALLING, callback=clkClicked, bouncetime=150)
-GPIO.add_event_detect(dt, GPIO.FALLING, callback=dtClicked, bouncetime=150)
-GPIO.add_event_detect(sw, GPIO.FALLING, callback=swClicked, bouncetime=150)
+GPIO.add_event_detect(clk, GPIO.FALLING, callback=clkClicked, bouncetime=300)
+GPIO.add_event_detect(dt, GPIO.FALLING, callback=dtClicked, bouncetime=300)
+GPIO.add_event_detect(sw, GPIO.FALLING, callback=swClicked, bouncetime=300)
  
 input("Start monitoring input")
  
